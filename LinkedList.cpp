@@ -21,7 +21,7 @@ namespace DataStructureAndAlgorithm{
   template <typename Type> inline int LinkedList<Type>::Size() { 
     return this->Length; 
   }
-  template <typename Type> inline void LinkedList<Type>::Delete(int Index=0) {
+  template <typename Type> inline void LinkedList<Type>::Delete(int Index) {
     if(Index<this->Size() && Index>=0){
       if(Index==0){
         Node *Temp = this->Front;
@@ -83,7 +83,7 @@ namespace DataStructureAndAlgorithm{
     for (int i(this->Length-1); i>=0 ; i--)
       this->Delete(i);
   }
-  template <typename Type> inline std::string LinkedList<Type>::Serialize(const std::function<std::string(Type)> &Lambda,std::string Header="",bool AddHeader = true) {
+  template <typename Type> inline std::string LinkedList<Type>::Serialize(const std::function<std::string(Type)> &Lambda,std::string Header,bool AddHeader) {
     Node *Current = this->Front;
     int index = this->Length;
     std::string serial =(Header!="")?(Header + "\n"):(Header);
