@@ -17,7 +17,7 @@ namespace DataStructureAndAlgorithm{
         public:
         void Insert(Type);
         void ClearList();
-        void Delete(int);
+        void Delete(int =0);
         int Size();
         Type At(int);
         Type operator[](int);
@@ -25,7 +25,7 @@ namespace DataStructureAndAlgorithm{
         void ForEach(const std::function<void(Type, int)> &Lambda);
         void ForEach(const std::function<void(Type, int, LinkedList<Type>)> &Lambda);
         void Sort(const std::function<bool(Type,Type)> &Lambda);
-        std::string Serialize(const std::function<std::string(Type)> &Lambda,std::string,bool);
+        std::string Serialize(const std::function<std::string(Type)> &Lambda,std::string ="",bool =true);
         template <typename ConvertType>LinkedList<ConvertType> Form(const std::function<ConvertType(Type,int)> &Lambda);
         ~LinkedList();
     };
