@@ -1,4 +1,7 @@
 #include "./DoubleLinkedList.c"
+#include "./String.c"
+#include "./Int.c"
+#include "./Employee.c"
 void print_menu() {
   printf("\nMenu:\n");
   printf("1. Initiate List\n");
@@ -20,35 +23,56 @@ int GetInt(char msg[]) {
   fflush(stdin);
   return number;
 }
-typedef struct String {
-  char Value[256];
-} String;
-String *GetString() {
+
+void TestEmployeeList(){
+  List EmployeeList;
+  int choice = 1;
   int unused __attribute__((unused));
-  String str;
-  String *Str = (String *)malloc(sizeof(String));
-  printf("Enter Value : ");
-  unused = scanf("%[^\n]s", (str.Value));
-  fflush(stdin);
-  // printf("ln : %d", __LINE__);
-  strcpy(Str->Value, str.Value);
-  return Str;
-}
-int* GetInteger(){
-  int unused __attribute__((unused));
-  int *newInt = (int*)malloc(sizeof(int));
-  printf("Enter Int : ");
-  unused = scanf("%d", newInt);
-  fflush(stdin);
-  return newInt;
-}
-void PrintString(void *str) {
-  String *string = (String *)str;
-  printf("{\n\tValue:\"%s\"\n}", string->Value);
-}
-void PrintInt(void *Int) {
-  int *newInt = (int*)Int;
-  printf("{\n\tValue:%d\n}", *newInt);
+  while (choice) {
+    print_menu();
+    printf("Enter your choice: ");
+    unused = scanf("%d", &choice);
+    fflush(stdin);
+    switch (choice) {
+    case 1: {
+      InitiateList(&EmployeeList, GetEmployee(), sizeof(String));
+    } break;
+    case 2: {
+      InsertAtFirst(&EmployeeList, GetEmployee(), sizeof(String));
+    } break;
+    case 3: {
+      InsertAtLast(&EmployeeList, GetEmployee(), sizeof(String));
+    } break;
+    case 4: {
+      InsertAtSpecific(&EmployeeList, GetEmployee(), sizeof(String),GetInt("enter Index"));
+    } break;
+    case 5: {
+      Traverse(&EmployeeList, &PrintEmployee);
+      ReverseTraverse(&EmployeeList, &PrintEmployee);
+      printf("\n Size of stringlist: %lu\n", SizeOf(&EmployeeList));
+    } break;
+    case 6: {
+      DeleteAtFirst(&EmployeeList);
+    } break;
+    case 7: {
+      DeleteAtLast(&EmployeeList);
+    } break;
+    case 8: {
+      DeleteAtSpecific(&EmployeeList, GetInt("Enter Index"));
+    } break;
+    case 9: {
+      ClearList(&EmployeeList);
+    } break;
+    case 10: {
+      system("cls");
+      Traverse(&EmployeeList, &PrintEmployee);
+      ReverseTraverse(&EmployeeList, &PrintEmployee);
+      choice = 0;
+    } break;
+    default:
+      printf("Invalid choice\n");
+    }
+  }
 }
 void TestStringList() {
   List StringList;
@@ -151,6 +175,7 @@ void TestIntList() {
   }
 }
 int main() {
+  TestEmployeeList();
   TestStringList();
   TestIntList();
   return 0;
