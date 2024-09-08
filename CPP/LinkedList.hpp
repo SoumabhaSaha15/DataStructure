@@ -13,7 +13,7 @@ namespace DataStructureAndAlgorithm{
         };
         Node *Front = nullptr;
         Node *Rear = nullptr;
-        int Length = 0;
+        unsigned int Length = 0;
         public:
         void Insert(Type);
         void ClearList();
