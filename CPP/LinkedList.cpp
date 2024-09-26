@@ -126,7 +126,6 @@ namespace DataStructureAndAlgorithm
   {
     this->ClearList();
   }
-  
   template <typename Type>
   inline Type LinkedList<Type>::At(size_t Index)
   {
