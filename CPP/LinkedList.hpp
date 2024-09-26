@@ -17,14 +17,14 @@ namespace DataStructureAndAlgorithm
         };
         Node *Front = nullptr;
         Node *Rear = nullptr;
-        unsigned int Length = 0;
+        size_t Length = 0;
 
     public:
         void Insert(Type);
         void ClearList();
         void Delete(int = 0);
-        int Size();
-        Type At(int);
+        size_t Size();
+        Type At(size_t);
         Type operator[](int);
         void ForEach(const std::function<void(Type)> &Lambda);
         void ForEach(const std::function<void(Type, int)> &Lambda);

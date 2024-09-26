@@ -24,7 +24,7 @@ namespace DataStructureAndAlgorithm
     }
   }
   template <typename Type>
-  inline int LinkedList<Type>::Size()
+  inline size_t LinkedList<Type>::Size()
   {
     return this->Length;
   }
@@ -62,7 +62,8 @@ namespace DataStructureAndAlgorithm
     }
     else
     {
-      std::cout << std::endl << "invalid index!!!" << std::endl;
+      std::cout << std::endl
+                << "invalid index!!!" << std::endl;
     }
   }
   template <typename Type>
@@ -110,7 +111,6 @@ namespace DataStructureAndAlgorithm
     for (int i(this->Length - 1); i >= 0; i--)
       this->Delete(i);
   }
-
   template <typename Type>
   template <typename ConvertType>
   inline LinkedList<ConvertType> LinkedList<Type>::Form(const std::function<ConvertType(Type, int)> &Lambda)
@@ -126,15 +126,25 @@ namespace DataStructureAndAlgorithm
   {
     this->ClearList();
   }
+  /**
+   * @brief This method might theow an exception.
+   *
+   * @param Index index of list.
+   * @return The value at Index position .
+   * @throws std::range_error if Index is invalid.
+   */
   template <typename Type>
-  inline Type LinkedList<Type>::At(int Index)
+  inline Type LinkedList<Type>::At(size_t Index)
   {
+    if (this->Size() <= Index)
+      throw std::range_error("invalid range");
     Node *Current = this->Front;
     while (Current && Index)
     {
       Index--;
       Current = Current->Right;
     }
+
     return Current->Data;
   }
   template <typename Type>
