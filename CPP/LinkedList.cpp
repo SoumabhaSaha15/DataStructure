@@ -126,13 +126,7 @@ namespace DataStructureAndAlgorithm
   {
     this->ClearList();
   }
-  /**
-   * @brief This method might theow an exception.
-   *
-   * @param Index index of list.
-   * @return The value at Index position .
-   * @throws std::range_error if Index is invalid.
-   */
+  
   template <typename Type>
   inline Type LinkedList<Type>::At(size_t Index)
   {
