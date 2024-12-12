@@ -5,18 +5,18 @@
  */
 
 // @lc code=start
+const bracket = "[{()}]", Valid = ["[]", "{}", "()"];
 /**
- * @param {string} s
+ * @param {string} string
  * @return {boolean}
  */
-const bracket = "[{()}]", Valid = ["[]", "{}", "()"];
 var isValid = (string) => {
-  let  str = [];
+  let str = [];
   for (let index = 0; index < string.length; index++)
     if (bracket.includes(string[index])) {
       str.push(string[index]);
-      if ((str.length>=2)&&Valid.includes((str[str.length-2]+str[str.length-1]))) 
-        str.splice(str.length-2,2);
+      if ((str.length >= 2) && Valid.includes((str[str.length - 2] + str[str.length - 1])))
+        str.splice(str.length - 2, 2);
     }
   return !str.length;
 };

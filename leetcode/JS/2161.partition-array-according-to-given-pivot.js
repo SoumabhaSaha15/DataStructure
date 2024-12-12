@@ -10,8 +10,11 @@
  * @param {number} pivot
  * @return {number[]}
  */
-var pivotArray = function(nums, pivot) {
-    
-};
+const pivotArray = (nums, pivot) => {
+  let small = [], equal = [], big = [];
+  for (const element of nums) 
+    element < pivot ? small.push(element) : (element === pivot ? equal.push(element) : big.push(element));
+  return small.concat(equal).concat(big);
+}
 // @lc code=end
 

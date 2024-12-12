@@ -10,10 +10,6 @@
  * @param {number} target
  * @return {number[]}
  */
-var targetIndices = function (nums, target) {
-  let arr = [];
-  nums.sort((a, b) => (a - b)).forEach((item, index) => { if (item === target) arr.push(index); });
-  return arr
-};
+const targetIndices = (nums, target) => nums.sort((a, b) => (a - b)).map((item, index) => (item === target ? index : -1)).filter(item => item !== -1);
 // @lc code=end
 

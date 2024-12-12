@@ -9,10 +9,10 @@
  * @param {string} s
  * @return {boolean}
  */
-const infinityArray = ["-Infinity","Infinity","+Infinity"];
-var isNumber = function(s) {
+const infinityArray = ["-Infinity", "Infinity", "+Infinity"];
+var isNumber = function (s) {
   var parsed = parseFloat(s);
-  return !(infinityArray.includes(s) || parsed!=s || Number.isNaN(parsed));
+  return !(infinityArray.includes(s) || parsed != s || Number.isNaN(parsed));
 };
 // @lc code=end
 

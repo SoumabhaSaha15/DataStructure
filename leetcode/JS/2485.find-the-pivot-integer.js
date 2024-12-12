@@ -10,15 +10,15 @@
  * @return {number}
  */
 const pivotInteger = (n) => {
-  let leftSide = (n * (n + 1) / 2), rightSide = n,pivot=-1;
+  let leftSide = (n * (n + 1) / 2), rightSide = n, pivot = -1;
   while (n) {
     if (leftSide == rightSide) {
       pivot = n;
       break;
-    }else{
+    } else {
       n--;
       rightSide += n;
-      leftSide -= (n+1);
+      leftSide -= (n + 1);
     }
   }
   return pivot;

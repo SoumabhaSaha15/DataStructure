@@ -10,7 +10,7 @@
  * @return {string}
  */
 const longestCommonPrefix = (strs) => {
-  if(strs.length == 1) return strs[0];
+  if (strs.length == 1) return strs[0];
   let arr = strs.sort((x, y) => (x.length - y.length));
   let word = arr.shift();
   let finalPrefix = '';
