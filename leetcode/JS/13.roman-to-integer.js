@@ -21,8 +21,7 @@ const romanToInt = (s) => {
   };
   let total = 0;
   for (let i = 0; i < s.length; i++) {
-    const current = romanMap[s[i]];
-    const next = romanMap[s[i + 1]];
+    const [current,next] = [romanMap[s[i]],romanMap[s[i + 1]]];
     total += (next && current < next) ? (-current) : (current);
   }
   return total;

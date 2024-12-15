@@ -24,17 +24,15 @@ class ListNode {
  */
 const swapPairs = (head) => {
   let current = head, arr = [], pop = 0;
-  for (; current; current = current.next) arr.push(current.val);
+  for (; current; current = current.next) arr.unshift(current.val);
   if (arr.length == 1) return head;
   else if (arr.length % 2 == 0) {
-    arr = arr.reverse();
     for (let i = 0; i < arr.length; i += 2) [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
     arr.forEach(item => { current = new ListNode(item, current); });
     return current;
   }
   else {
-    current = new ListNode(arr.pop(), current);
-    arr = arr.reverse();
+    current = new ListNode(arr.shift(), current);
     for (let i = 0; i < arr.length; i += 2) [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
     arr.forEach(item => { current = new ListNode(item, current); });
     return current;
